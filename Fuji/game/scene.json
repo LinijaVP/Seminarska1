@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "type": "camera",
+      "translation": [0, 10, 0],
+      "aabb": {
+        "min": [-0.4, -0.4, -0.4],
+        "max": [0.4, 0.4, 0.4]
+      },
+      "aspect": 1,
+      "fov": 1.5,
+      "near": 0.01,
+      "far": 100
+    },
+    {
+      "type": "model",
+      "mesh": 0,
+      "texture": 0,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [3, 1, -5]
+    },
+    {
+      "type": "model",
+      "mesh": 0,
+      "texture": 1,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [0, 1, 5]
+    },
+    {
+      "type": "model",
+      "mesh": 1,
+      "texture": 1,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [0, 1, -5]
+    },
+    {
+      "type": "model",
+      "mesh": 0,
+      "texture": 0,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [3, 0.1, -1],
+      "rotation": [0, 1, 0],
+      "scale": [1, 0.1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 2,
+      "texture": 1,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [0, 0, 0],
+      "rotation": [0, 1, 0],
+      "scale": [40, 1, 40]
+    },
+    {
+      "type": "model",
+      "mesh": 0,
+      "texture": 0,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [5, 0.1, -1],
+      "rotation": [0, 1, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 0,
+      "texture": 2,
+      "aabb": {
+        "min": [-1, -0.1, -1],
+        "max": [1, 0.1, 1]
+      },
+      "translation": [100, 0, 50],
+      "rotation": [0, 1, 0],
+      "scale": [200, 50, 1]
+    }
+  ],
+
+
+  "textures": [
+    "../../common/images/crate-diffuse.png",
+    "../../common/images/grass.png",
+    "../../common/images/xpos.png",
+    "../../common/images/xneg.png",
+    "../../common/images/ypos.png",
+    "../../common/images/yneg.png",
+    "../../common/images/zpos.png",
+    "../../common/images/zneg.png"
+  ],
+  "meshes": [
+    "../../common/models/cube.json",
+    "../../common/models/pyramid.json",
+    "../../common/models/floor.json"
+  ]
+}
