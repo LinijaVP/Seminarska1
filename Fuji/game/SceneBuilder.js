@@ -5,7 +5,7 @@ import { Model } from './Model.js';
 import { Camera } from './Camera.js';
 
 import { Scene } from './Scene.js';
-import { Player } from './Player.js';
+import { Upgrade } from './Upgrade.js';
 
 export class SceneBuilder {
 
@@ -21,10 +21,10 @@ export class SceneBuilder {
                 const texture = this.spec.textures[spec.texture];
                 return new Model(mesh, texture, spec);
             }
-            case 'player': {
+            case 'upgrade': {
                 const mesh = new Mesh(this.spec.meshes[spec.mesh]);
                 const texture = this.spec.textures[spec.texture];
-                return new Player(mesh, texture, spec);
+                return new Upgrade(mesh, texture, spec);
             }
             default: return new Node(spec);
         }

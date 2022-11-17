@@ -3,7 +3,7 @@ import { Application } from '../../common/engine/Application.js';
 import { Renderer } from './Renderer.js';
 import { Physics } from './Physics.js';
 import { Camera } from './Camera.js';
-import { Player } from './Player.js';
+import { Upgrade } from './Upgrade.js';
 import { SceneLoader } from './SceneLoader.js';
 import { SceneBuilder } from './SceneBuilder.js';
 
@@ -43,6 +43,7 @@ class App extends Application {
             if (node instanceof Camera) {
                 this.camera = node;
             }
+            
         });
 
         this.camera.aspect = this.aspect;
@@ -57,6 +58,8 @@ class App extends Application {
 
         this.camera.update(dt);
         this.physics.update(dt);
+
+
     }
 
     render() {

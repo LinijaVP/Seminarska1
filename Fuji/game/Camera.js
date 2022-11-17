@@ -28,6 +28,8 @@ export class Camera extends Node {
     
         this.jumpLimit = 0.5;
         this.kite = true;
+
+        this.upgrades = 0;
     
     }
 
@@ -38,11 +40,28 @@ export class Camera extends Node {
     update(dt) {
         const c = this;
 
-        
+        //grounded check ŠE DODAJ CHECK ZA SPREMINJANJE VISINE SI ZE MEL
         if(document.getElementById('ground').getAttribute("value") == "true") {
             this.grounded = true;
         } else 
            this.grounded = false;
+
+
+        //upgrades jump boost
+        var trenutna = document.getElementById('upgrade').getAttribute("value");
+        if(trenutna == "one")
+            this.upgrades = 1;
+        else if(trenutna == "two")
+            this.upgrades = 2;
+        else if(trenutna == "three")
+            this.upgrades = 3;
+        else if(trenutna == "four")
+            this.upgrades = 4;
+            
+        this.jumpLimit = 0.5 + 0.15 * this.upgrades;
+
+
+
 
         const forward = vec3.set(vec3.create(),
             -Math.sin(c.rotation[1]), 0, -Math.cos(c.rotation[1]));
@@ -129,11 +148,11 @@ export class Camera extends Node {
             this.jumpTime = 0;
         }
 
-        
-
-
         vec3.scaleAndAdd(c.velocity, c.velocity, acc, dt * c.acceleration);
 
+
+        // fov change with speed
+        c.fov = 1.5 + c.maxSpeed / c.velocity;
     
     }
 

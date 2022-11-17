@@ -1,6 +1,6 @@
 import { vec3, mat4 } from '../../lib/gl-matrix-module.js';
 
-
+import { Upgrade } from './Upgrade.js';
 
 
 export class Physics {
@@ -25,6 +25,8 @@ export class Physics {
                         this.resolveCollision(node, other);
                     }
                 });
+
+
         
             }
         });
@@ -83,6 +85,30 @@ export class Physics {
             return;
         } 
         this.gr++;
+
+
+        //upgrades
+        var trenutna = document.getElementById('upgrade').getAttribute("value");
+        if(trenutna != "four" && (a instanceof Upgrade || b instanceof Upgrade)) {
+            if(trenutna == "zero")
+                document.getElementById('upgrade').setAttribute("value", "one");
+            else if(trenutna == "one")
+                document.getElementById('upgrade').setAttribute("value", "two");
+            else if(trenutna == "two")
+                document.getElementById('upgrade').setAttribute("value", "three");
+            else if(trenutna == "three")
+                document.getElementById('upgrade').setAttribute("value", "four");
+
+        
+            if(a instanceof Upgrade) {
+                a.translation[1] = 200;
+                a.updateMatrix();
+            } else if(b instanceof Upgrade ){
+                b.translation[1] = 200;
+                b.updateMatrix();
+            }
+
+        }
        
         // Move node A minimally to avoid collision.
         const diffa = vec3.sub(vec3.create(), bBox.max, aBox.min);
