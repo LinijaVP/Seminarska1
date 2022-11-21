@@ -1,5 +1,8 @@
 import { Application } from '../../common/engine/Application.js';
 
+import { vec3, mat4 } from '../../lib/gl-matrix-module.js';
+
+import { Node } from './Node.js'; 
 import { Renderer } from './Renderer.js';
 import { Physics } from './Physics.js';
 import { Camera } from './Camera.js';
@@ -16,6 +19,7 @@ class App extends Application {
         this.time = performance.now();
         this.startTime = this.time;
         this.aspect = 1;
+
 
         await this.load('scene.json');
 
@@ -45,6 +49,7 @@ class App extends Application {
             }
             
         });
+        
 
         this.camera.aspect = this.aspect;
         this.camera.updateProjection();

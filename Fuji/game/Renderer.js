@@ -1,15 +1,16 @@
-import { mat4 } from '../../lib/gl-matrix-module.js';
-
 import { WebGL } from '../../common/engine/WebGL.js';
 
 import { shaders } from './shaders.js';
+
+const mat4 = glMatrix.mat4;
+const vec3 = glMatrix.vec3;
 
 export class Renderer {
 
     constructor(gl) {
         this.gl = gl;
 
-        gl.clearColor(1, 1, 1, 1);
+        gl.clearColor(0.7, 1, 1, 1);
         gl.enable(gl.DEPTH_TEST);
         gl.enable(gl.CULL_FACE);
 
@@ -33,32 +34,39 @@ export class Renderer {
 
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-        const { program, uniforms } = this.programs.simple;
-        gl.useProgram(program);
+        const program = this.programs.simple;
+        gl.useProgram(program.program);
 
-        const matrix = mat4.create();
-        const matrixStack = [];
+        let matrix = mat4.create();
+        let matrixStack = [];
+        const lightDirection =  vec3.set(vec3.create(),
+        5, 15, 0);
 
         const viewMatrix = camera.getGlobalTransform();
         mat4.invert(viewMatrix, viewMatrix);
         mat4.copy(matrix, viewMatrix);
-        gl.uniformMatrix4fv(uniforms.uProjection, false, camera.projection);
-
+        gl.uniformMatrix4fv(program.uniforms.uProjection, false, camera.projection);
+        const normalMatrix = mat4.create();
+        mat4.invert(normalMatrix, viewMatrix);
+        mat4.transpose(normalMatrix, normalMatrix);
         scene.traverse(
             node => {
                 matrixStack.push(mat4.clone(matrix));
                 mat4.mul(matrix, matrix, node.matrix);
                 if (node.gl.vao) {
                     gl.bindVertexArray(node.gl.vao);
-                    gl.uniformMatrix4fv(uniforms.uViewModel, false, matrix);
+                    gl.uniformMatrix4fv(program.uniforms.uViewModel, false, matrix);
+                    gl.uniformMatrix4fv(program.uniforms.uNormalMatrix, false, normalMatrix);
+                    gl.uniform3fv(program.uniforms.uLight, lightDirection);
+                    //gl.uniform3fv(program.uniforms.uLight, lightDirection2);
                     gl.activeTexture(gl.TEXTURE0);
                     gl.bindTexture(gl.TEXTURE_2D, node.gl.texture);
-                    gl.uniform1i(uniforms.uTexture, 0);
+                    gl.uniform1i(program.uniforms.uTexture, 0);
                     gl.drawElements(gl.TRIANGLES, node.gl.indices, gl.UNSIGNED_SHORT, 0);
                 }
             },
             node => {
-                mat4.copy(matrix, matrixStack.pop());
+                matrix = matrixStack.pop();
             }
         );
     }
