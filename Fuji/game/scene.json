@@ -34,16 +34,6 @@
     },
     {
       "type": "model",
-      "mesh": 1,
-      "texture": 1,
-      "aabb": {
-        "min": [-0.5, -0.5, -0.5],
-        "max": [0.5, 0.5, 0.5]
-      },
-      "translation": [0, 1, -5]
-    },
-    {
-      "type": "model",
       "mesh": 0,
       "texture": 0,
       "aabb": {
@@ -52,7 +42,7 @@
       },
       "translation": [3, 0.1, -1],
       "rotation": [0, 0, 0],
-      "scale": [1, 0.1, 1]
+      "scale": [1, 1, 1]
     },
     {
       "type": "model",
@@ -80,68 +70,124 @@
     },
     {
       "type": "upgrade",
-      "mesh": 0,
-      "texture": 1,
+      "mesh": 3,
+      "texture": 3,
       "aabb": {
         "min": [-1, -0.1, -1],
         "max": [1, 0.1, 1]
       },
       "translation": [5, 4, 0],
-      "rotation": [0, 0, 0],
+      "rotation": [0, 3, 0],
       "scale": [0.5, 0.5, 0.5]
     },
     {
       "type": "upgrade",
-      "mesh": 0,
-      "texture": 1,
+      "mesh": 3,
+      "texture": 3,
       "aabb": {
         "min": [-1, -0.1, -1],
         "max": [1, 0.1, 1]
       },
       "translation": [0, 7, 10],
-      "rotation": [0, 0, 0],
+      "rotation": [0, 3, 0],
       "scale": [0.5, 0.5, 0.5]
     },
     {
       "type": "upgrade",
-      "mesh": 0,
-      "texture": 1,
+      "mesh": 3,
+      "texture": 3,
       "aabb": {
         "min": [-1, -0.1, -1],
         "max": [1, 0.1, 1]
       },
       "translation": [-6, 2, -5],
-      "rotation": [0, 0, 0],
+      "rotation": [0, 3, 0],
       "scale": [0.5, 0.5, 0.5]
     },
     {
       "type": "upgrade",
-      "mesh": 0,
-      "texture": 1,
+      "mesh": 3,
+      "texture": 3,
       "aabb": {
         "min": [-1, -0.1, -1],
         "max": [1, 0.1, 1]
       },
       "translation": [10, 10, 10],
-      "rotation": [0, 0, 0],
+      "rotation": [0, 3, 0],
       "scale": [0.5, 0.5, 0.5]
+    },
+
+
+
+
+
+    {
+      "type": "model",
+      "mesh": 4,
+      "texture": 4,
+      "aabb": {
+        "min": [-7, -4, -7],
+        "max": [7, 3, 7]
+      },
+      "translation": [10, 15, 8],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 5,
+      "texture": 0,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 27, 1]
+      },
+      "translation": [15, 0.1, 0],
+      "rotation": [0, 0, 0],
+      "scale": [0.2, 0.2, 0.2]
+    },
+    {
+      "type": "model",
+      "mesh": 6,
+      "texture": 0,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 4, 1]
+      },
+      "translation": [20, 0.1, 0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 7,
+      "texture": 1,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 24, 1]
+      },
+      "translation": [25, 0.1, 0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 0.6, 1]
     }
   ],
 
 
   "textures": [
     "../../common/images/crate-diffuse.png",
-    "../../common/images/grass.png",
-    "../../common/images/xpos.png",
-    "../../common/images/xneg.png",
-    "../../common/images/ypos.png",
-    "../../common/images/yneg.png",
-    "../../common/images/zpos.png",
-    "../../common/images/zneg.png"
+    "../../common/images/grass1.png",
+    "../../common/images/grayscale.png",
+    "../../common/images/featherTex.png",
+    "../../common/images/snowy.png"
   ],
   "meshes": [
     "../../common/models/cube.json",
     "../../common/models/pyramid.json",
-    "../../common/models/floor.json"
+    "../../common/models/floor.json",
+    "../../common/models/feather.json",
+    "../../common/models/otok.json",
+    "../../common/models/sakura.json",
+    "../../common/models/maple.json",
+    "../../common/models/bambus.json"
+
   ]
 }

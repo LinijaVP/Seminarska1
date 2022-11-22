@@ -7,6 +7,7 @@ uniform mat4 uNormalMatrix;
 uniform mat4 uViewModel;
 uniform mat4 uProjection;
 uniform vec3 uLight;
+uniform vec3 uLight2;
 
 out vec2 vTexCoord;
 out vec3 vNormal;
@@ -43,7 +44,7 @@ void main() {
     vec3 E = normalize(vEye);
     vec3 R = normalize(reflect(-L, N));
     float lambert = max(0.0, dot(L, N));
-    float phong = pow(max(0.0, dot(E, R)), 10.0);
+    float phong = pow(max(0.0, dot(E, R)), 3.0);
 
     // cel shading
     if (lambert < 0.05) {
@@ -75,16 +76,11 @@ void main() {
     }
     phong = phong*0.9;
 
-    float light = lambert + phong;
+    float light = lambert + phong + phong;
 
     oColor = texture(uTexture, vTexCoord) * vec4(light, light, light, 1);
 }
 `;
-
-export default {
-    simple: { vertex, fragment }
-};
-
 
 
 

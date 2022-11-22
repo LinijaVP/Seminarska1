@@ -65,3 +65,25 @@ a.back:hover {
     0% { transform: rotate(0deg); }
   100% { transform: rotate(1800deg); }
 }
+
+.health-bar {
+    box-sizing: border-box;
+    width: 200px;
+    height: 20px;
+    margin:50px;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .bar {
+    background: #c54;
+    width: 50%;
+    height: 10px;
+    position: relative;
+    
+    transition: width .2s linear;
+  }
+  
+  

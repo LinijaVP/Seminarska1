@@ -30,6 +30,11 @@ export class Camera extends Node {
         this.kite = true;
 
         this.upgrades = 0;
+
+        
+        this.bar = document.querySelector('.bar')
+        
+        
     
     }
 
@@ -47,6 +52,12 @@ export class Camera extends Node {
            this.grounded = false;
 
 
+        //jump bar manipulation
+        const barValue = (this.jumpLimit-this.jumpTime) / 1.1 * 100;
+        var barText = "%";
+        barText = barValue.toString() + barText;
+        this.bar.style.width = barText;
+
         //upgrades jump boost
         var trenutna = document.getElementById('upgrade').getAttribute("value");
         if(trenutna == "one")
@@ -61,6 +72,12 @@ export class Camera extends Node {
         this.jumpLimit = 0.5 + 0.15 * this.upgrades;
 
 
+        //reset camera
+        if (c.translation[1] < -10) {
+            c.translation = [0, 5, 0]
+            c.updateMatrix();
+            //da mu printa butec tu
+        }
 
 
         const forward = vec3.set(vec3.create(),
@@ -97,9 +114,9 @@ export class Camera extends Node {
         //1.1 sprint
         if(this.keys['ShiftLeft']) {
             vec3.add(acc, acc, forward);
-            c.maxSpeed = 10;
+            c.maxSpeed = 15;
         } else {
-            c.maxSpeed = 5;
+            c.maxSpeed = 7;
         }
 
         
@@ -127,10 +144,11 @@ export class Camera extends Node {
         if(this.keys['Space']) {
             if(this.jumpTime == 0)
                 this.grounded = false;
-            this.jumpTime += dt;
+
             if(this.jumpTime < this.jumpLimit) {
+                this.jumpTime += dt;
                 vec3.add(acc, acc, up);
-            }
+            } 
         }
 
         //6: gravity
@@ -148,7 +166,7 @@ export class Camera extends Node {
             this.jumpTime = 0;
         }
 
-        vec3.scaleAndAdd(c.velocity, c.velocity, acc, dt * c.acceleration);
+        vec3.scaleAndAdd(c.velocity, c.velocity, acc, dt * c.acceleration)
 
 
         // fov change with speed

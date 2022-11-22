@@ -40,7 +40,7 @@ export class Renderer {
         let matrix = mat4.create();
         let matrixStack = [];
         const lightDirection =  vec3.set(vec3.create(),
-        5, 15, 0);
+        10, 55, 0);
 
         const viewMatrix = camera.getGlobalTransform();
         mat4.invert(viewMatrix, viewMatrix);
@@ -49,6 +49,9 @@ export class Renderer {
         const normalMatrix = mat4.create();
         mat4.invert(normalMatrix, viewMatrix);
         mat4.transpose(normalMatrix, normalMatrix);
+        //mat4.translate(normalMatrix, normalMatrix, [0,5,0])
+        
+       
         scene.traverse(
             node => {
                 matrixStack.push(mat4.clone(matrix));
@@ -58,7 +61,6 @@ export class Renderer {
                     gl.uniformMatrix4fv(program.uniforms.uViewModel, false, matrix);
                     gl.uniformMatrix4fv(program.uniforms.uNormalMatrix, false, normalMatrix);
                     gl.uniform3fv(program.uniforms.uLight, lightDirection);
-                    //gl.uniform3fv(program.uniforms.uLight, lightDirection2);
                     gl.activeTexture(gl.TEXTURE0);
                     gl.bindTexture(gl.TEXTURE_2D, node.gl.texture);
                     gl.uniform1i(program.uniforms.uTexture, 0);

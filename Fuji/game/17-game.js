@@ -9,6 +9,7 @@ import { Camera } from './Camera.js';
 import { Upgrade } from './Upgrade.js';
 import { SceneLoader } from './SceneLoader.js';
 import { SceneBuilder } from './SceneBuilder.js';
+import { Dogajanje } from './dogajanje.js';
 
 class App extends Application {
 
@@ -40,16 +41,20 @@ class App extends Application {
         const builder = new SceneBuilder(scene);
         this.scene = builder.build();
         this.physics = new Physics(this.scene);
-
+        
+        var upgrades = [];
         // Find first camera.
         this.camera = null;
         this.scene.traverse(node => {
             if (node instanceof Camera) {
                 this.camera = node;
+            } else if (node instanceof Upgrade) {
+                upgrades.push(node)
             }
             
         });
-        
+
+        this.dogajanje = new Dogajanje(upgrades);
 
         this.camera.aspect = this.aspect;
         this.camera.updateProjection();
@@ -63,7 +68,7 @@ class App extends Application {
 
         this.camera.update(dt);
         this.physics.update(dt);
-
+        this.dogajanje.update(dt);
 
     }
 
