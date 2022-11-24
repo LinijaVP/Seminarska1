@@ -22,8 +22,9 @@ export class Camera extends Node {
 
         this.jumpC = 0;
         this.grounded = false;
-        this.groundLevel = 0;
-        this.groundChecker = 0;
+        this.groundLevel = false;
+        this.prejsnji = 0;
+        this.stGround = 0;
         this.jumpTime = 0;
     
         this.jumpLimit = 0.5;
@@ -45,12 +46,24 @@ export class Camera extends Node {
     update(dt) {
         const c = this;
 
+        const zdaj = Math.round(c.translation[1] * 100) / 100;
+        if(this.prejsnji == zdaj) {
+            this.stGround++;
+        }
         //grounded check ŠE DODAJ CHECK ZA SPREMINJANJE VISINE SI ZE MEL
         if(document.getElementById('ground').getAttribute("value") == "true") {
-            this.grounded = true;
+            if(this.stGround > 10) {
+                this.grounded = true;
+            }
         } else 
            this.grounded = false;
+           this.stGround = 0;
+           
 
+        
+
+        this.prejsnji = zdaj;
+        
 
         //jump bar manipulation
         const barValue = (this.jumpLimit-this.jumpTime) / 1.1 * 100;
@@ -73,10 +86,10 @@ export class Camera extends Node {
 
 
         //reset camera
-        if (c.translation[1] < -10) {
+        if (c.translation[1] < -6) {
             c.translation = [0, 5, 0]
             c.updateMatrix();
-            //da mu printa butec tu
+            
         }
 
 
@@ -144,6 +157,8 @@ export class Camera extends Node {
         if(this.keys['Space']) {
             if(this.jumpTime == 0)
                 this.grounded = false;
+                
+            
 
             if(this.jumpTime < this.jumpLimit) {
                 this.jumpTime += dt;
@@ -182,21 +197,7 @@ export class Camera extends Node {
     }
     
 
-    jumpCooldown() {
-        if(this.jumpC < 0.4 && this.doubleJ == 0) {
-            return true;
-            this.jumpC = 0;
-            this.doubleJ = 1;
-        }
-        if(this.jumpC < 0.4 && this.doubleJ == 1) {
-            return true;
-        }
-        if(this.jumpC > 1) {
-            this.jumpC = 0;
-            this.doubleJ = 0;
-        }
-        return false;
-    }
+
 
 
     enable() {
