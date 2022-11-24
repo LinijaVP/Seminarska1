@@ -12,12 +12,63 @@ li {
     padding: 5px;
 }
 
-a {
-    color: black;
+.StartGame {
+    color: white;
+    font-size: 200px;
+    font-family: 'brush', sans-serif;
     text-decoration: none;
     padding: 5px;
 }
 
-a:hover {
-    background: #ddd;
+.Controls {
+    color: white;
+    font-size: 100px;
+    font-family: 'brush', sans-serif;
+    text-decoration: none;
+    padding: 5px;
+}
+
+div {
+    font-family: inherit;
+}
+
+.fullscreen{
+    position: relative; 
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("common/images/background_mount_fuji.png");
+} 
+.fullscreen::before{
+    opacity: 0.75;
+}
+
+.menu {
+    backdrop-filter: blur(2px);
+    margin-top: 20%;
+    text-align: center;
+    width: max-content;
+    height: max-content;
+    font-family: 'brush', sans-serif;
+    color: white;
+    font-size: 90px;
+    text-decoration: none;
+    padding: 5px;
+    font-family: 'brush', sans-serif;
+}
+
+.controls {
+    margin-top: 13%;
+    backdrop-filter: blur(2px);
+    text-align: center;
+    width: max-content;
+    height: max-content;
+    font-family: 'brush', sans-serif;
+    color: white;
+    font-size: 90px;
+    text-decoration: none;
+    padding: 5px;
+    font-family: 'brush', sans-serif;
 }
