@@ -46,6 +46,7 @@ export class Camera extends Node {
     update(dt) {
         const c = this;
 
+
         const zdaj = Math.round(c.translation[1] * 100) / 100;
         if(this.prejsnji == zdaj) {
             this.stGround++;
@@ -56,8 +57,8 @@ export class Camera extends Node {
                 this.grounded = true;
             }
         } else {
-           this.grounded = false;
-           this.stGround = 0;
+            this.grounded = false;
+            this.stGround = 0;
         }
 
         this.prejsnji = zdaj;
@@ -79,6 +80,8 @@ export class Camera extends Node {
             this.upgrades = 3;
         else if(trenutna == "four")
             this.upgrades = 4;
+        else if(trenutna == "konec")
+            location.href = '../index.html';
             
         this.jumpLimit = 0.5 + 0.15 * this.upgrades;
 
@@ -98,9 +101,9 @@ export class Camera extends Node {
         const up = vec3.set(vec3.create(),
             0, 10, 0);
         const down = vec3.set(vec3.create(),
-            0, -7, 0);
+            0, -8, 0);
         const downKite = vec3.set(vec3.create(),
-            0, -3, 0);
+            0, -5, 0);
 
 
         

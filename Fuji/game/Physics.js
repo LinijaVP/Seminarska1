@@ -89,7 +89,7 @@ export class Physics {
 
         //upgrades
         var trenutna = document.getElementById('upgrade').getAttribute("value");
-        if(trenutna != "four" && (a instanceof Upgrade || b instanceof Upgrade)) {
+        if(trenutna != "konec" && (a instanceof Upgrade || b instanceof Upgrade)) {
             if(trenutna == "zero")
                 document.getElementById('upgrade').setAttribute("value", "one");
             else if(trenutna == "one")
@@ -98,13 +98,18 @@ export class Physics {
                 document.getElementById('upgrade').setAttribute("value", "three");
             else if(trenutna == "three")
                 document.getElementById('upgrade').setAttribute("value", "four");
+            else if(trenutna == "four") {
+                document.getElementById('upgrade').setAttribute("value", "konec");
+            }
 
         
             if(a instanceof Upgrade) {
                 a.translation[1] = 200;
+                b.jumpTime = 0;
                 a.updateMatrix();
             } else if(b instanceof Upgrade ){
                 b.translation[1] = 200;
+                a.jumpTime = 0;
                 b.updateMatrix();
             }
 

@@ -7,7 +7,7 @@ export class Dogajanje {
     }
 
     update(dt) {
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 5; i++) {
             vec3.scaleAndAdd(this.upgrades[i].rotation, this.upgrades[i].rotation, [0,1,0], dt);
             this.upgrades[i].updateMatrix();
         }
