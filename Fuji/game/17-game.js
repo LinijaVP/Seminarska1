@@ -9,7 +9,7 @@ import { Camera } from './Camera.js';
 import { Upgrade } from './Upgrade.js';
 import { SceneLoader } from './SceneLoader.js';
 import { SceneBuilder } from './SceneBuilder.js';
-import { Dogajanje } from './dogajanje.js';
+import { Dogajanje } from './Dogajanje.js';
 
 class App extends Application {
 

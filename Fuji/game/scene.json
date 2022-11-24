@@ -7,21 +7,13 @@
         "min": [-0.8, -0.8, -0.8],
         "max": [0.8, 0.8, 0.8]
       },
+      "rotation": [0,-1.5,0],
       "aspect": 1,
       "fov": 1.9,
       "near": 0.01,
       "far": 200
     },
-    {
-      "type": "model",
-      "mesh": 0,
-      "texture": 0,
-      "aabb": {
-        "min": [-1, -1, -1],
-        "max": [1, 1, 1]
-      },
-      "translation": [3, 1, -5]
-    },
+    
     {
       "type": "model",
       "mesh": 0,

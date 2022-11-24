@@ -55,12 +55,10 @@ export class Camera extends Node {
             if(this.stGround > 10) {
                 this.grounded = true;
             }
-        } else 
+        } else {
            this.grounded = false;
            this.stGround = 0;
-           
-
-        
+        }
 
         this.prejsnji = zdaj;
         
