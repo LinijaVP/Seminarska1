@@ -12,14 +12,30 @@
 <body class="fullscreen">
 
     <div class="controls" margin-top="10%" >
-        <div>
+        <div id="instructions">
             <div>Space = Jump</div>
             <div>WASD = Movement</div>
             <div>E = Kiting</div>
-            <div>Feathers improve your juming ability</div>
-            <div>Colect all the feathers to win<div>
+            <div>SHIFT = running</div>
+            <div>Feathers improve your jumping ability</div>
+            <div>Collect all the feathers to win</div>
         </div>
-        <div><a class="Controls" href="index.html">Back</a></div>        
+        <div><a onmouseover=controlMouseover() onmouseleave=controlMouseleave() class="Controls" id="Control" href="index.html">Back</a></div>        
     </div>
+
+    <script>
+        let controls = document.getElementById('Control');
+
+        function controlMouseover ()  {   
+            instructions.style.colour = "blur(10px)"
+            controls.style.color = "red" 
+    }
+    function controlMouseleave() {
+        instructions.style.filter = "blur(0px)"
+        controls.style.color = "white" 
+    }
+
+
+    </script>
 </body>
 </html>

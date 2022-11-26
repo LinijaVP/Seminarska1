@@ -1,5 +1,6 @@
 body {
     margin: 10px;
+    display: table-column;
 }
 
 ul {
@@ -33,7 +34,7 @@ div {
 }
 
 .fullscreen{
-    position: relative; 
+    position: relative;
     height: 100%;
     width: 100%;
     display: flex;
@@ -47,7 +48,7 @@ div {
 
 .menu {
     backdrop-filter: blur(2px);
-    margin-top: 20%;
+    margin-top: 10%;
     text-align: center;
     width: max-content;
     height: max-content;
@@ -60,14 +61,14 @@ div {
 }
 
 .controls {
-    margin-top: 13%;
+    margin-top: 5%;
     backdrop-filter: blur(2px);
     text-align: center;
     width: max-content;
     height: max-content;
     font-family: 'brush', sans-serif;
     color: white;
-    font-size: 90px;
+    font-size: 60px;
     text-decoration: none;
     padding: 5px;
     font-family: 'brush', sans-serif;
