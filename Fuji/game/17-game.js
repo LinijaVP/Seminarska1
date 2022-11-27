@@ -28,12 +28,15 @@ class App extends Application {
         document.addEventListener('pointerlockchange', e => {
             if (document.pointerLockElement === this.canvas) {
                 this.camera.enable();
+                document.getElementById('aud').play();
+                document.getElementById('aud').volume = 0.5;
             } else {
                 this.camera.disable();
             }
 
             
         });
+        
     }
 
     async load(uri) {
@@ -53,6 +56,7 @@ class App extends Application {
             }
             
         });
+        
 
         this.dogajanje = new Dogajanje(upgrades);
 
